@@ -56,13 +56,13 @@ const Detail = () =>
                         </div>
                         <div className="container">
                             <div className="section mb-3">
-                                <VideoList id={item.id}/>
+                                <VideoList id={item.id} />
                             </div>
                             <div className="section mb-3">
                                 <div className="section__header mb-2">
                                     <h2>Similar</h2>
                                 </div>
-                                <MovieList category={category} type="similar" id={item.id} />   
+                                <MovieList category={category} type="similar" id={item.id} />
                             </div>
                         </div>
                     </>
