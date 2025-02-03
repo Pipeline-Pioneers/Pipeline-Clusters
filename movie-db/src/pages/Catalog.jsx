@@ -12,7 +12,11 @@ const Catalog = () => {
             <PageHeader>
                 Movies
             </PageHeader>
-          
+            <div className="container">
+                <div className="section mb-3">
+                    <MovieGrid category={category} />
+                </div>
+            </div>
         </>
     );
 }
