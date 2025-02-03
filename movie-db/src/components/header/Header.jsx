@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './header.scss';
  
 import logo from '../../assets/pmovie.png';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
  
 const headerNav =
 [
@@ -49,7 +49,7 @@ const Header = () =>
             <div className="header__wrap container">
                 <div className="logo">
                     <img src={logo} alt="" />
-                    <Link to="/">Pipeline Cluster</Link>
+                    <a to="/">Pipeline Cluster</a>
                 </div>
                 <ul className="header__nav">
                     {
