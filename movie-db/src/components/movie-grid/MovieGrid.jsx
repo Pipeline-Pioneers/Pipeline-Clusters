@@ -75,9 +75,9 @@ export const MovieSearch = props => {
 
     const goToSearch = useCallback(() => {
         if (keyword.trim().length > 0) {
-            history.push(`/movie/search/${keyword}`);
+            window.location.href = `/${category[props.category]}/search/${keyword}`;
         }
-    }, [keyword, history]);
+    }, [keyword, props.category]);
 
     useEffect(() => {
         const enterEvent = (e) => {
