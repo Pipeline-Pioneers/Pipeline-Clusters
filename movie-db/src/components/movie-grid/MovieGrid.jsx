@@ -12,7 +12,7 @@ const MovieGrid = props => {
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
     const { keyword } = useParams();
-    const { category } = props;
+    
 
     useEffect(() => {
         const getList = async () => {
@@ -25,13 +25,13 @@ const MovieGrid = props => {
                 const params = {
                     query: keyword
                 };
-                response = await tmdbApi.search(category, { params });
+                response = await tmdbApi.search(category.movie, { params });
             }
             setItems(response.results);
             setTotalPage(response.total_pages);
         }
         getList();
-    }, [keyword, category]);
+    }, [keyword]);
 
     const loadMore = async () => {
         let response = null;
@@ -46,7 +46,7 @@ const MovieGrid = props => {
                 page: page + 1,
                 query: keyword
             };
-            response = await tmdbApi.search(category, { params });
+            response = await tmdbApi.search(category.movie, { params });
         }
         setItems([...items, ...response.results]);
         setPage(page + 1);
@@ -58,7 +58,7 @@ const MovieGrid = props => {
                 <MovieSearch keyword={keyword} />
             </div>
             <div className="movie-grid">
-                {items.map((item, i) => <MovieCard category={category} item={item} key={i} />)}
+                {items.map((item, i) => <MovieCard category={category.movie} item={item} key={i} />)}
             </div>
             {page < totalPage ? (
                 <div className="movie-grid__loadmore">
@@ -72,6 +72,7 @@ const MovieGrid = props => {
 export const MovieSearch = props => {
     const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '');
     const history = useHistory();
+    
 
     const goToSearch = useCallback(() => {
         if (keyword.trim().length > 0) {
