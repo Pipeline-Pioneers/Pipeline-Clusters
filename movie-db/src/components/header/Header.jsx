@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './header.scss';
  
-import logo from '../../assets/pmovie.png';
+import logo from '../../assets/pmovie.jpeg';
 import { useLocation } from 'react-router-dom';
  
 const headerNav =

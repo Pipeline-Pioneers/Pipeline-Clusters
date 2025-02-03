@@ -14,7 +14,7 @@ const Catalog = () => {
             </PageHeader>
             <div className="container">
                 <div className="section mb-3">
-                    <MovieGrid category={category} />
+                    <MovieGrid category={cate.movie} />
                 </div>
             </div>
         </>

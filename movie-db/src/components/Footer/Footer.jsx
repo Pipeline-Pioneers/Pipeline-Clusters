@@ -2,7 +2,7 @@ import React from 'react';
 import './footer.scss';
 import { Link } from 'react-router-dom';
 import videoBg from '../../assets/vid1.mp4';
-import logo from '../../assets/pmovie.png';
+import logo from '../../assets/pmovie.jpeg';
 
 const Footer = () => {
     return (
