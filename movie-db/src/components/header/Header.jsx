@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './header.scss';
-
+ 
 import logo from '../../assets/pmovie.png';
 import { Link, useLocation } from 'react-router-dom';
-
-const headerNav = 
+ 
+const headerNav =
 [
     {
         display: 'Home',
@@ -15,14 +15,14 @@ const headerNav =
         path: '/movie'
     }
 ];
-
-const Header = () => 
+ 
+const Header = () =>
 {
     const { pathname } = useLocation();
     const headerRef = useRef(null);
     const active = headerNav.findIndex(e => e.path === pathname);
-
-    useEffect(() => 
+ 
+    useEffect(() =>
     {
         const shrinkHeader = () =>
         {
@@ -35,15 +35,15 @@ const Header = () =>
                 headerRef.current.classList.remove('shrink');
             }
         }
-
+ 
         window.addEventListener('scroll', shrinkHeader);
-
+ 
         return () =>
         {
             window.removeEventListener('scroll', shrinkHeader);
         };
     }, []);
-
+ 
     return (
         <div ref={headerRef} className="header">
             <div className="header__wrap container">
@@ -69,5 +69,5 @@ const Header = () =>
         </div>
     );
 }
-
+ 
 export default Header;
