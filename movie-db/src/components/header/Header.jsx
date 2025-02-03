@@ -49,7 +49,7 @@ const Header = () =>
             <div className="header__wrap container">
                 <div className="logo">
                     <img src={logo} alt="" />
-                    <a to="/">Pipeline Cluster</a>
+                    <a href="/">Pipeline Cluster</a>
                 </div>
                 <ul className="header__nav">
                     {
