@@ -1,0 +1,102 @@
+@use "../../scss/" as *;
+
+.movie-card
+{
+    position: relative;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 160%;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid $main-color; // Add border around the card
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
+
+    .btn
+    {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: linear-gradient(45deg, $main-color, darken($main-color, 10%)); // Gradient background
+        color: $white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: $border-radius;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+        &:hover
+        {
+            background: linear-gradient(45deg, darken($main-color, 10%), $main-color); // Darker gradient on hover
+        }
+    }
+
+    .title
+    {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        color: $white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+        &:hover
+        {
+            color: lighten($white, 20%); // Hover effect on title
+        }
+    }
+
+    &::before
+    {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: $border-radius;
+    }
+
+    @media (hover: hover) and (pointer: fine)
+    {
+        &:hover
+        {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        &:hover::before
+        {
+            opacity: 0.8;
+        }
+
+        &:hover .btn
+        {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+
+    @keyframes smoothBounce
+    {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    &:hover
+    {
+        animation: smoothBounce 0.6s ease-in-out;
+    }
+}
+
+
+
