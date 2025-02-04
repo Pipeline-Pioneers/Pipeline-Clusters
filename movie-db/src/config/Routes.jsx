@@ -4,26 +4,31 @@ import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
 import Detail from '../pages/detail/Detail';
 
+// Routes component to define application routes
 const Routes = () => 
 {
     return (
         <Switch>
+            {/* Route for searching within a category */}
             <Route 
                 path='/:category/search/:keyword' 
-                component = {Catalog}
+                component={Catalog}
             />
+            {/* Route for viewing details of a specific item */}
             <Route 
                 path='/:category/:id' 
-                component = {Detail}
+                component={Detail}
             />
+            {/* Route for viewing a category */}
             <Route 
                 path='/:category' 
-                component = {Catalog}
+                component={Catalog}
             />
+            {/* Default route for the home page */}
             <Route 
                 path='/'
                 exact 
-                component = {Home}
+                component={Home}
             />
         </Switch>
     );
