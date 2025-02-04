@@ -1,5 +1,6 @@
 @use '../../scss/' as *;
 
+// Styles for the modal container
 .modal
 {
     @include flex(center, center);
@@ -14,12 +15,14 @@
     opacity: 0;
     visibility: hidden;
 
+    // Styles for the active state of the modal
     &.active
     {
         opacity: 1;
         visibility: visible;
     }
 
+    // Styles for the modal content
     &__content
     {
         padding: 2rem;
@@ -35,6 +38,7 @@
             width: 80%;
         }
 
+        // Styles for the close button within the modal content
         &__close
         {
             position: absolute;

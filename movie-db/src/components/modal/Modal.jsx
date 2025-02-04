@@ -4,14 +4,15 @@ import './modal.scss';
 
 const Modal = props => 
 {
-    const [active, setActive] = useState(false);
+    const [active, setActive] = useState(false); // State to manage modal active status
 
     useEffect(() => 
     {
-        setActive(props.active);
+        setActive(props.active); // Update active state when props.active changes
     }, [props.active]);
 
     return (
+        // Render the modal with dynamic active class
         <div id={props.id} className={`modal ${active ? 'active' : ''}`}>
             {props.children}
         </div>
@@ -20,21 +21,22 @@ const Modal = props =>
 
 Modal.propTypes = 
 {
-    active: PropTypes.bool,
-    id: PropTypes.string
+    active: PropTypes.bool, // active is an optional boolean prop
+    id: PropTypes.string // id is an optional string prop
 }
 
 export const ModalContent = props =>
 {
-    const contentRef = useRef(null);
+    const contentRef = useRef(null); // Reference to the modal content element
 
     const closeModal = () =>
     {
-        contentRef.current.parentNode.classList.remove('active');
-        if(props.onClose) props.onClose();
+        contentRef.current.parentNode.classList.remove('active'); // Remove active class from modal
+        if(props.onClose) props.onClose(); // Call onClose prop if it exists
     }
 
     return (
+        // Render the modal content with a close button
         <div ref={contentRef} className="modal__content">
             {props.children}
             <div className="modal__content__close" onClick={closeModal}>
@@ -44,9 +46,9 @@ export const ModalContent = props =>
     )
 }
 
-ModalContent.propTypes =
+ModalContent.propTypes = 
 {
-    onClose: PropTypes.func
+    onClose: PropTypes.func // onClose is an optional function prop
 }
 
 export default Modal;

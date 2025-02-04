@@ -1,9 +1,11 @@
 @use "../../scss/" as *;
 
+// Styles for the hero slide container
 .hero-slide
 {
     margin-bottom: 3rem;
 
+    // Styles for each hero slide item
     &__item
     {
         padding: 9rem 0;
@@ -13,6 +15,7 @@
         background-size: cover;
         background-repeat: no-repeat;
 
+        // Overlay effect for the hero slide item
         &::before
         {
             content: "";
@@ -24,6 +27,7 @@
             @include overlay();
         }
 
+        // Styles for the content within each hero slide item
         &__content
         {
             display: flex;
@@ -33,6 +37,7 @@
             padding: 9rem 0;
             position: relative;
 
+            // Styles for the information section within the content
             &__info
             {
                 width: 55%;
@@ -40,6 +45,7 @@
                 position: relative;
                 text-align: center;
 
+                // Styles for the title within the information section
                 .title
                 {
                     font-size: 3rem; // Smaller font size

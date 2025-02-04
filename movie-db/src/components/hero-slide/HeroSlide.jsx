@@ -13,21 +13,21 @@ import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal';
 
 const HeroSlide = () => {
-    SwiperCore.use([Navigation, Pagination]);
+    SwiperCore.use([Navigation, Pagination]); // Use Swiper modules
 
-    const [movieItems, setMovieItems] = useState([]);
+    const [movieItems, setMovieItems] = useState([]); // State to store movie items
 
     useEffect(() => {
         const getMovies = async () => {
             const params = { page: 1 };
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, { params });
-                setMovieItems(response.results.slice(1, 4));
+                setMovieItems(response.results.slice(1, 4)); // Set movie items from API response
             } catch (error) {
                 console.log('error');
             }
         };
-        getMovies();
+        getMovies(); // Fetch movies on component mount
     }, []);
 
     return (
@@ -46,7 +46,6 @@ const HeroSlide = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {movieItems.map((item, i) => <TrailerModal key={i} item={item} />)}
         </div>
     );
 };
