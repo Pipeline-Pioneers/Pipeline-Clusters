@@ -21,7 +21,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Footer menu links */}
+            {/* Footer menu Links */}
             <div className="footer__content__menus">
                 <div className="footer__content__menu">
                     <a href="/">Home</a>
