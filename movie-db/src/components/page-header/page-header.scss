@@ -1,5 +1,6 @@
 @use '../../scss/variables' as *;
 
+// Page header styles
 .page-header {
     position: relative;
     padding: $header-height 0 2rem;
@@ -7,11 +8,13 @@
     margin-bottom: 2rem;
     overflow: hidden;
 
+    // Header title styles
     h2 {
         position: relative;
         z-index: 1;
     }
 
+    // Background video styles
     &__video-bg {
         position: absolute;
         top: 0;
@@ -22,6 +25,7 @@
         z-index: 0;
     }
 
+    // Gradient overlay styles
     &::after {
         content: "";
         position: absolute;
