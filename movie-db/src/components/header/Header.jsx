@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import './header.scss';
- 
+
 import logo from '../../assets/pmovie.jpeg';
 import { useLocation } from 'react-router-dom';
- 
+
+// Navigation items for the header
 const headerNav =
 [
     {
@@ -15,15 +16,16 @@ const headerNav =
         path: '/movie'
     }
 ];
- 
+
 const Header = () =>
 {
-    const { pathname } = useLocation();
-    const headerRef = useRef(null);
-    const active = headerNav.findIndex(e => e.path === pathname);
- 
+    const { pathname } = useLocation(); // Get current path
+    const headerRef = useRef(null); // Reference to the header element
+    const active = headerNav.findIndex(e => e.path === pathname); // Find the active navigation item
+
     useEffect(() =>
     {
+        // Function to shrink the header on scroll
         const shrinkHeader = () =>
         {
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
@@ -35,17 +37,19 @@ const Header = () =>
                 headerRef.current.classList.remove('shrink');
             }
         }
- 
-        window.addEventListener('scroll', shrinkHeader);
- 
+
+        window.addEventListener('scroll', shrinkHeader); // Add scroll event listener
+
         return () =>
         {
-            window.removeEventListener('scroll', shrinkHeader);
+            window.removeEventListener('scroll', shrinkHeader); // Clean up event listener on component unmount
         };
     }, []);
- 
+
     return (
-        <div ref={headerRef} className="header">
+        // Render the header component
+        <header ref={headerRef}>
+            {/* Logo and navigation items */}
             <div className="header__wrap container">
                 <div className="logo">
                     <img src={logo} alt="" />
@@ -66,8 +70,8 @@ const Header = () =>
                     }
                 </ul>
             </div>    
-        </div>
+        </header>
     );
 }
- 
+
 export default Header;
