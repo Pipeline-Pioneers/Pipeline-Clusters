@@ -1,12 +1,13 @@
 @use "../../scss/" as *;
 
+// Styling for the banner section
 .banner
 {
-    height: 50vh;
-    position: relative;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    height: 50vh; // Sets the height of the banner to 50% of the viewport height
+    position: relative; // Allows absolute positioning of child elements
+    background-position: center; // Centers the background image
+    background-size: cover; // Ensures the background image covers the entire banner
+    background-repeat: no-repeat; // Prevents background image from repeating
 
     &::before
     {
@@ -16,7 +17,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        @include overlay();
+        @include overlay(); // Applies an overlay mixin for styling
     }
 
     &::after
@@ -27,27 +28,28 @@
         left: 0;
         width: 100%;
         height: 100px;
-        background-image: linear-gradient(to top, $body-bg, rgba($black, 0));
+        background-image: linear-gradient(to top, $body-bg, rgba($black, 0)); // Adds a gradient effect at the bottom
     }
 }
 
+// Styling for the movie content section
 .movie-content
 {
-    @include flex(flex-start, flex-start);
-    max-width: 1260px;
+    @include flex(flex-start, flex-start); // Applies flexbox with aligned items
+    max-width: 1260px; // Sets maximum width
     margin-left: auto;
     margin-right: auto;
-    margin-top: -200px;
+    margin-top: -200px; // Positions the section above its natural placement
     position: relative;
     padding: 0 2rem;
 
     &__poster
     {
-        flex: 1;
+        flex: 1; // Allows flexible growth of the poster
 
         @include mobile
         {
-            display: none;
+            display: none; // Hides the poster on mobile devices
         }
 
         &__img
@@ -55,14 +57,14 @@
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-            border-radius: $border-radius;
-            padding-top: 165%;
+            border-radius: $border-radius; // Applies a border-radius variable
+            padding-top: 165%; // Maintains aspect ratio
         }
     }
 
     &__info
     {
-        width: 70%;
+        width: 70%; // Sets the width of the info section
         padding-left: 2rem;
         position: relative;
 
@@ -74,63 +76,65 @@
 
         & > *
         {
-            margin-bottom: 2rem;
+            margin-bottom: 2rem; // Adds spacing between child elements
         }
 
         .title
         {
-            font-size: 4rem;
-            line-height: 1;
+            font-size: 4rem; // Large font size for the movie title
+            line-height: 1; // Sets line height for better readability
         }
 
         .genres
         {
             & > * ~ *
             {
-                margin-left: .5rem;
+                margin-left: .5rem; // Adds margin between genre items
             }
 
             &__item
             {
                 padding: 0.5rem 1.5rem;
-                border: 2px solid $white;
-                border-radius: $border-radius;
+                border: 2px solid $white; // White border around genre items
+                border-radius: $border-radius; // Applies border radius
                 font-size: 0.8rem;
                 font-weight: 600;
-                background-color: $body-bg;    
+                background-color: $body-bg; // Sets background color
             }
         }
     }
 }
 
+// Styling for the cast section
 .casts
 {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); // Responsive grid layout
+    gap: 10px; // Spacing between items
 
     &__item
     {
         &__img
         {
-            padding-top: 160px;
+            padding-top: 160px; // Maintains aspect ratio for images
             background-size: cover;
-            margin-bottom: .5rem;
+            margin-bottom: .5rem; // Adds spacing below images
         }
 
         &__name
         {
-            font-size: 0.8rem;
+            font-size: 0.8rem; // Smaller font size for cast names
         }
     }
 }
 
+// Styling for the video section
 .video
 {
-    margin-bottom: 3rem;
+    margin-bottom: 3rem; // Adds bottom margin for spacing
 
     &__title
     {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem; // Adds margin below video title
     }
 }
