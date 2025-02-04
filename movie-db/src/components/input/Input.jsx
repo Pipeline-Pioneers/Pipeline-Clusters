@@ -4,7 +4,6 @@ import './input.scss';
 const Input = props =>
 {
     return (
-        // Render an input element with dynamic type, placeholder, value, and onChange handler
         <input 
             type={props.type}
             placeholder={props.placeholder}

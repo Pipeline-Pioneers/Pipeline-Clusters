@@ -1,9 +1,7 @@
 @use '../../scss/' as *;
 
-// Styles for the movie list container
 .movie-list
 {
-    // Styles for each swiper slide
     .swiper-slide
     {
         width: 15%;

@@ -11,7 +11,7 @@ import MovieCard from '../movie-card/MovieCard';
 
 const MovieList = props => 
 {
-    const [items, setItems] = useState([]); // State to store movie items
+    const [items, setItems] = useState([]);
 
     useEffect(() =>
     {
@@ -25,20 +25,20 @@ const MovieList = props =>
                 switch (props.category)
                 {
                     case category.movie:
-                        response = await tmdbApi.getMoviesList(props.type, { params }); // Fetch movie list
+                        response = await tmdbApi.getMoviesList(props.type, { params });
                         break;
                     default:
-                        response = await tmdbApi.getTvList(props.type, { params }); // Fetch TV list
+                        response = await tmdbApi.getTvList(props.type, { params });
                 }
             }
             else
             {
-                response = await tmdbApi.similar(props.category, props.id); // Fetch similar items
+                response = await tmdbApi.similar(props.category, props.id);
             }
-            setItems(response.results); // Set movie items
+            setItems(response.results);
         }
-        getList(); // Fetch list on component mount or props change
-    }, [props.category, props.type, props.id]);
+        getList();
+    }, []);
 
     return (
         <div className="movie-list">
@@ -47,11 +47,13 @@ const MovieList = props =>
                 spaceBetween={10}
                 slidesPerView={'auto'}
             >
-                {items.map((item, i) => (
-                    <SwiperSlide key={i}>
-                        <MovieCard item={item} category={props.category} />
-                    </SwiperSlide>
-                ))}
+                {
+                    items.map((item, i) => (
+                        <SwiperSlide key={i}>
+                            <MovieCard item={item} category={props.category} />
+                        </SwiperSlide>
+                    ))
+                }
             </Swiper>
         </div>
     );
@@ -59,9 +61,8 @@ const MovieList = props =>
 
 MovieList.propTypes = 
 {
-    category: PropTypes.string.isRequired, // category is a required string prop
-    type: PropTypes.string.isRequired, // type is a required string prop
-    id: PropTypes.number // id is an optional number prop
+    category: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 }
 
 export default MovieList;
