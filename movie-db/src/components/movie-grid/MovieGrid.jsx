@@ -8,11 +8,10 @@ import Input from '../input/Input';
 import Button from '../button/Button';
 
 const MovieGrid = props => {
-    const [items, setItems] = useState([]);
-    const [page, setPage] = useState(1);
-    const [totalPage, setTotalPage] = useState(0);
-    const { keyword } = useParams();
-    
+    const [items, setItems] = useState([]); // State to store movie items
+    const [page, setPage] = useState(1); // State to store current page
+    const [totalPage, setTotalPage] = useState(0); // State to store total pages
+    const { keyword } = useParams(); // Get keyword from URL parameters
 
     useEffect(() => {
         const getList = async () => {
@@ -20,17 +19,17 @@ const MovieGrid = props => {
 
             if (keyword === undefined) {
                 const params = {};
-                response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
+                response = await tmdbApi.getMoviesList(movieType.upcoming, { params }); // Fetch upcoming movies
             } else {
                 const params = {
                     query: keyword
                 };
-                response = await tmdbApi.search(category.movie, { params });
+                response = await tmdbApi.search(category.movie, { params }); // Search movies by keyword
             }
-            setItems(response.results);
-            setTotalPage(response.total_pages);
+            setItems(response.results); // Set movie items
+            setTotalPage(response.total_pages); // Set total pages
         }
-        getList();
+        getList(); // Fetch movie list on component mount or keyword change
     }, [keyword]);
 
     const loadMore = async () => {
@@ -40,32 +39,31 @@ const MovieGrid = props => {
             const params = {
                 page: page + 1
             };
-            response = await tmdbApi.getMoviesList(movieType.upcoming, { params });
+            response = await tmdbApi.getMoviesList(movieType.upcoming, { params }); // Fetch more upcoming movies
         } else {
             const params = {
                 page: page + 1,
                 query: keyword
             };
-            response = await tmdbApi.search(category.movie, { params });
+            response = await tmdbApi.search(category.movie, { params }); // Fetch more search results
         }
-        setItems([...items, ...response.results]);
-        setPage(page + 1);
+        setItems([...items, ...response.results]); // Append new items to existing items
+        setPage(page + 1); // Increment page number
     }
 
     return (
-        <>
-            <div className="section mb-3">
-                <MovieSearch keyword={keyword} />
-            </div>
-            <div className="movie-grid">
-                {items.map((item, i) => <MovieCard category={category.movie} item={item} key={i} />)}
-            </div>
+        <div className="movie-grid">
+            {/* Render movie cards */}
+            {items.map((item, i) => (
+                <MovieCard key={i} item={item} category={props.category} />
+            ))}
+            {/* Load more button */}
             {page < totalPage ? (
                 <div className="movie-grid__loadmore">
-                    <OutlineButton className="small" onClick={loadMore}>Load More</OutlineButton>
+                    <OutlineButton className="small" onClick={loadMore}>Load more</OutlineButton>
                 </div>
             ) : null}
-        </>
+        </div>
     );
 }
 
