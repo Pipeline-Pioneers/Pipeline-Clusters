@@ -14,25 +14,15 @@ const Footer = () => {
                 <div className="footer__content__logo">
                     <div className="logo">
                         <img src={logo} alt="" />
-                        <Link to="/">Pipeline Cluster</Link>
+                        <a href="/">Pipeline Cluster</a>
                     </div>
                 </div>
                 <div className="footer__content__menus">
                     <div className="footer__content__menu">
-                        <Link to="/">Home</Link>
-                        <Link to="/">Contact Us</Link>
-                        <Link to="/">Terms of Service</Link>
-                        <Link to="/">About Us</Link>
-                    </div>
+                        <a href="/">Home</a>
+                        </div>
                     <div className="footer__content__menu">
-                        <Link to="/">Live</Link>
-                        <Link to="/">FAQ</Link>
-                        <Link to="/">Premium</Link>
-                        <Link to="/">Privacy Policy</Link>
-                    </div>
-                    <div className="footer__content__menu">
-                        <Link to="/">You Must Watch</Link>
-                        <Link to="/">Recent Release</Link>
+                    <a href="/">Movies</a>
                     </div>
                 </div>
             </div>
