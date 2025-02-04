@@ -1,5 +1,6 @@
 @use './variables' as *;
 
+// Mixin for mobile breakpoint
 @mixin mobile
 {
     @media only screen and (max-width: $mobile-width)
@@ -8,6 +9,7 @@
     }
 }
 
+// Mixin for tablet breakpoint
 @mixin tablet
 {
     @media only screen and (max-width: $tablet-width)
