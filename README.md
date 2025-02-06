@@ -1,5 +1,3 @@
-# Live Website link : https://pipeline-clusters-2.onrender.com
-
 ## 🎬 How to Use the Movie Database App 🎥
 
 Welcome to the Movie Database App! Follow these steps to explore and enjoy the features of the app:
