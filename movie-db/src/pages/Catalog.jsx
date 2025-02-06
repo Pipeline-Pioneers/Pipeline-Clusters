@@ -12,13 +12,13 @@ const Catalog = () => {
         <>
             {/* Page header section */}
             <PageHeader>
-                Movies
+            {category === cate.movie ? 'Movies' : 'TV Series'}
             </PageHeader>
             <div className="container">
                 {/* Section containing the movie grid */}
                 <div className="section mb-3">
                     {/* MovieGrid component to display movies based on the category */}
-                    <MovieGrid category={cate.movie} />
+                    <MovieGrid category={category} />
                 </div>
             </div>
         </>
