@@ -174,6 +174,13 @@ Ready to deploy? Here’s the guide to get your app live:
 Running into issues with building? Here’s a quick troubleshooting guide:  
 [npm run build fails to minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+### Contributors
+- **[Andronica Maswanganye] (https://github.com/Andro-crt-prog)** - Project Lead
+- **[Lucas Tladi] (https://github.com/LJ-II)** -Backend Development
+-  **[Molemo Mamashela] (https://github.com/MolemoMM)** -Backend Development
+-  **[Maureen Khoza] (https://github.com/MaurenK)** -Logo & Frontend Development
+-   **[Sisonke Boyilani] (https://github.com/Sisonke10-byt)** - Frontend Development
+
 ---
 
 ## 🎉 You did it! 🎉
