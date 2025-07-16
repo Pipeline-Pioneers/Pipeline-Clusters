@@ -11,9 +11,9 @@ const Catalog = () => {
     return (
         <>
             {/* Page header section */}
-            {/* <PageHeader> */}
-            {/* {category === cate.movie ? 'Movies' : 'TV Series'} */}
-            {/* </PageHeader> */}
+            <PageHeader>
+            { 'Movies' }
+            </PageHeader>
             <div className="container">
                 {/* Section containing the movie grid */}
                 <div className="section mb-3">
